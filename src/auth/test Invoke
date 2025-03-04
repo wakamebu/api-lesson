@@ -1,0 +1,10 @@
+$headers = @{
+    "Content-Type" = "application/json"
+}
+
+$body = @{
+    "email" = "test@example.com"
+    "password" = "testpassword"
+} | ConvertTo-Json -Depth 10
+
+Invoke-RestMethod -Uri "http://localhost:3005/auth/signin" -Method Post -Headers $headers -Body $body
